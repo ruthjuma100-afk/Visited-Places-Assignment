@@ -7,12 +7,32 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <h1>Travel Tracker</h1>
+
+    <form id="placeForm">
+        <label class="label" for="location">Location:</label> <br>
+        <input class="input" type="text" id="location" required> <br>
+
+        <label class="label" for="timeOfYear">Time of Year:</label> <br>
+        <input class="input" type="text" id="timeOfYear" required> <br>
+
+        <label class="label" for="notes">Notes:</label> <br>
+        <textarea id="notes"></textarea> <br>
+
+        <label class="label" for="landmark">Add Landmark:</label> <br>
+        <input class="input" type="text" id="landmark"> <br>
+
+        <button type="submit">Add Place</button> 
+  </form>
+
+  <h2>Places Visited;</h2>
+
+  <ul id="placesList"></ul>
+
+  <div id="placeSummary" class="summary" style="display:none;"></div>
+
+  <script src="script.js"></script>
     
-
-
-
-
-
-    <script src="script.js"></script>
 </body>
 </html>
