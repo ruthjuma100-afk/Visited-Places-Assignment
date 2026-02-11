@@ -113,6 +113,12 @@ function savePlaces() {
     localStorage.setItem("places", JSON.stringify(tracker.places));
 }
 
+// localStorage helpers
+
+function savePlaces() {
+    localStorage.setItem("places", JSON.stringify(tracker.places));
+}
+
 function loadPlaces() {
     const saved = localStorage.getItem("places");
     if (saved) {
@@ -128,3 +134,38 @@ function loadPlaces() {
     return place;
     
 });
+ // Update nextId to avoid collisions
+    
+    if (tracker.places.length > 0) {
+    Place.nextId = Math.max(...tracker.places.map(p => p.id));
+    }
+    } catch (e) {
+    console.error("Failed to load places from localStorage");
+    }
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    
+    const placeForm = document.getElementById("placeForm");
+    const placesList = document.getElementById("placesList");
+    const placeSummary = document.getElementById("placeSummary");
+    
+    if (!placeForm || !placesList || !placeSummary) 
+    return;
+
+    // Load places from localStorage
+    loadPlaces();
+
+    // Display places
+
+    function displayPlaces() {
+        placesList.innerHTML = "";
+        tracker.places.forEach(place => {
+            const li = document.createElement("li");
+            li.textContent = place.location;
+            li.dataset.id = place.id;
+            li.style.cursor = "pointer";
+            placesList.appendChild(li);
+        });
+    }
