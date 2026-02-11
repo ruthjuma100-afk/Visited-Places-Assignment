@@ -204,3 +204,26 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
+
+     // Form submission
+
+    placeForm.addEventListener("submit", e => {
+        e.preventDefault();
+        const location = document.getElementById("location").value;
+        const timeOfYear = document.getElementById("timeOfYear").value;
+        const notes = document.getElementById("notes").value;
+        const landmark = document.getElementById("landmark").value;
+
+        const place = new Place(location, timeOfYear, notes);
+        if (landmark) place.addLandmark(landmark);
+
+        tracker.addPlace(place);
+        savePlaces();
+        displayPlaces();
+        placeForm.reset();
+    });
+
+    // Initial render
+
+    displayPlaces();
+});
