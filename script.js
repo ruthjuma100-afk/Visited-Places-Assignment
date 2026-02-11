@@ -106,3 +106,25 @@ test("deletes a place by id", () => {
 });
 
 const tracker = new TravelTracker();
+
+// localStorage helpers
+
+function savePlaces() {
+    localStorage.setItem("places", JSON.stringify(tracker.places));
+}
+
+function loadPlaces() {
+    const saved = localStorage.getItem("places");
+    if (saved) {
+        try {
+    
+    const placesData = JSON.parse(saved);
+    tracker.places = placesData.map(p => {
+                
+    const place = new Place(p.location, p.timeOfYear, p.notes);
+    place.id = p.id;
+    place.landmarks = p.landmarks;
+    
+    return place;
+    
+});
