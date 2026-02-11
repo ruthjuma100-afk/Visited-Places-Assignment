@@ -60,3 +60,49 @@ TravelTracker.prototype.findPlaceById = function(id) {
 TravelTracker.prototype.deletePlace = function(id) {
     this.places = this.places.filter(p => p.id !== id);
 };
+
+// TDD
+
+test("creates a place with correct properties", () => {
+    const place = new Place("Paris", "Summer", "Visited Eiffel Tower");
+    expect(place.location).toBe("Paris");
+    expect(place.timeOfYear).toBe("Summer");
+    expect(place.notes).toBe("Visited Eiffel Tower");
+    expect(place.landmarks).toEqual([]);
+    expect(place.id).toBeType("number");
+});
+
+test("adds a landmark to a place", () => {
+    const place = new Place("Rome", "Spring");
+    place.addLandmark("Colosseum");
+    expect(place.landmarks).toEqual(["Colosseum"]);
+});
+
+test("travel tracker adds a place", () => {
+    const tracker = new TravelTracker();
+    const place = new Place("London", "Winter");
+    tracker.addPlace(place);
+    expect(tracker.places.length).toBe(1);
+    expect(tracker.places[0]).toBe(place);
+});
+
+test("finds a place by id", () => {
+    const tracker = new TravelTracker();
+    const place = new Place("New York", "Fall");
+    tracker.addPlace(place);
+    const found = tracker.findPlaceById(place.id);
+    expect(found).toBe(place);
+});
+
+test("deletes a place by id", () => {
+    const tracker = new TravelTracker();
+    const place1 = new Place("Tokyo", "Summer");
+    const place2 = new Place("Kyoto", "Spring");
+    tracker.addPlace(place1);
+    tracker.addPlace(place2);
+    tracker.deletePlace(place1.id);
+    expect(tracker.places.length).toBe(1);
+    expect(tracker.places[0]).toBe(place2);
+});
+
+const tracker = new TravelTracker();
