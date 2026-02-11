@@ -19,11 +19,13 @@ The application uses JavaScript constructor functions and prototypes to manage p
 
 ### Setup Instructions
 
-1. To run this project locally:
+**To run this project locally:**
+
+1. Clone repository
 
 - git Clone: https://github.com/ruthjuma100-afk/Visited-Places-Assignment.git
 
-- Ensure the following files are in the same folder:
+2. Ensure the following files are in the same folder:
 
 - index.html
 
@@ -31,11 +33,15 @@ The application uses JavaScript constructor functions and prototypes to manage p
 
 - README.md
 
-- Open index.html in a modern web browser
+3. Open index.html in a modern web browser
 
-- Open the browser Developer Console to view TDD test results
+4. Open the browser Developer Console to view TDD test results
 
-- Use the form to add places and click on a place name to view its details
+5. Use the form to add places and click on a place name to view its details
+
+6. The project is deployed using GitHub Pages.# Live Link
+
+- 
 
 ### Test-Driven Development (TDD)
 
