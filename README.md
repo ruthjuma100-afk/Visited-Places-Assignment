@@ -12,7 +12,10 @@ The application uses JavaScript constructor functions and prototypes to manage p
 ### Author's Information
 
 **Name:** Ruth Juma
+
 **Location:** Nairobi-Kenya
+
+--- 
 
 ### Setup Instructions
 
@@ -53,8 +56,11 @@ The application uses JavaScript constructor functions and prototypes to manage p
 ~ Test results are displayed in the browser console using pass/fail messages
 
 **Example output:**
+
 ✅ Place constructor creates a new place
+
 ✅ Landmark is added to a place
+
 ❌ Notes should not be empty
 
 ## Technologies Used
