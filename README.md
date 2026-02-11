@@ -41,7 +41,7 @@ The application uses JavaScript constructor functions and prototypes to manage p
 
 6. The project is deployed using GitHub Pages.# Live Link
 
-- 
+- https://ruthjuma100-afk.github.io/Visited-Places-Assignment/
 
 ### Test-Driven Development (TDD)
 
