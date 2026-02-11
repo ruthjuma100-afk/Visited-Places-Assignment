@@ -42,3 +42,21 @@ function Place(location, timeOfYear, notes) {
 Place.prototype.addLandmark = function(landmark) {
     if (landmark) this.landmarks.push(landmark);
 };
+
+// TravelTracker constructor
+
+function TravelTracker() {
+    this.places = [];
+}
+
+TravelTracker.prototype.addPlace = function(place) {
+    this.places.push(place);
+};
+
+TravelTracker.prototype.findPlaceById = function(id) {
+    return this.places.find(p => p.id === id);
+};
+
+TravelTracker.prototype.deletePlace = function(id) {
+    this.places = this.places.filter(p => p.id !== id);
+};
