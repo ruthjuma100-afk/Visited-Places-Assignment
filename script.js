@@ -169,3 +169,38 @@ document.addEventListener("DOMContentLoaded", () => {
             placesList.appendChild(li);
         });
     }
+
+    // Show place summary
+
+    placesList.addEventListener("click", e => {
+        if (e.target.tagName === "LI") {
+            const id = Number(e.target.dataset.id);
+            const place = tracker.findPlaceById(id);
+            if (place) {
+            placeSummary.style.display = "block";
+
+                 // build summary using safe text nodes
+
+            placeSummary.innerHTML = "";
+            const h3 = document.createElement("h3");
+            h3.textContent = place.location;
+            
+            const pTime = document.createElement("p");
+            pTime.innerHTML = "<strong>Time of Year:</strong> ";
+            pTime.append(document.createTextNode(place.timeOfYear || "Unknown"));
+                
+            const pNotes = document.createElement("p");
+            pNotes.innerHTML = "<strong>Notes:</strong> ";
+            pNotes.append(document.createTextNode(place.notes || "None"));
+                
+            const pLandmarks = document.createElement("p");
+            pLandmarks.innerHTML = "<strong>Landmarks:</strong> ";
+            pLandmarks.append(document.createTextNode(place.landmarks.length ? place.landmarks.join(", ") : "None"));
+                
+            placeSummary.appendChild(h3);
+            placeSummary.appendChild(pTime);
+            placeSummary.appendChild(pNotes);
+            placeSummary.appendChild(pLandmarks);
+            }
+        }
+    });
